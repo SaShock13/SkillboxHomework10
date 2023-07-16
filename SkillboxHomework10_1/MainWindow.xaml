@@ -1,0 +1,40 @@
+﻿<Window x:Class="SkillboxHomework10_1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SkillboxHomework10_1"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+     TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+          Title="MainWindow" Height="450" Width="800"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen"
+        Name="mainWindow"
+        DataContext="MainWindow">
+
+    <Grid>
+        <DataGrid Name="dgClientsList"  Margin="10,10,10,130" AutoGenerateColumns="False" SelectionChanged="dgClientsList_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Path=LastName}" IsReadOnly="True" Width="180" />
+                <DataGridTextColumn Header="Имя" Binding="{Binding Path=Name}" IsReadOnly="True" Width="120" />
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Path=SurName}" IsReadOnly="True" Width="120" />
+                <DataGridTextColumn Header="Номер телефона" Binding="{Binding Path=PhoneNumber}" IsReadOnly="True" Width="150" />
+                <DataGridTextColumn x:Name="passportColumn" Header="Паспортные данные" Binding="{Binding Path=Passport}"  IsReadOnly="True" Width="150" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="btnChange" Content="Изменить данные" HorizontalAlignment="Left" Margin="30,0,0,40" Width="160" Click="ChangeBtnClick" Height="30" VerticalAlignment="Bottom" />
+        <Button Name="btnAdd" Content="Добавить клиента" HorizontalAlignment="Left" Margin="220,0,0,40" Width="160" Click="AddBtnClick" Height="30" VerticalAlignment="Bottom" />
+        <Button Name="btnDelete" Content="Удалить клиента" HorizontalAlignment="Right" Margin="0,0,220,40" Width="160" Click="DeleteBtnClick" Height="30" VerticalAlignment="Bottom" />
+        <Button Content="Сохранить в файл" Margin="0,0,30,40" Click="SaveBtnClick" HorizontalAlignment="Right" Width="160" Height="30"  VerticalAlignment="Bottom"/>
+        <TextBlock Name="tbInfo" Margin="30,304,30,90" TextWrapping="Wrap" Text="{Binding Path=info}"/>
+
+    </Grid>
+
+</Window>
